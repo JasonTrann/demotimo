@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.2 (Python 3.9.2 on win32)" generated="20211215 14:47:08.154" rpa="false" schemaversion="2">
+<suite id="s1" name="MoveMoney" source="D:\Timo\TimoWEB\TestScript\TestSuit\MoveMoney\MoveMoney.robot">
+<test id="s1-t1" name="Test">
+<kw name="Open test Browser" library="Configuration">
+<arg>${Dev-site}</arg>
+<arg>${Chrome}</arg>
+<msg timestamp="20211215 14:47:08.411" level="FAIL">Resolving variable '${Dev-site}' failed: Variable '${Dev}' not found.</msg>
+<status status="FAIL" starttime="20211215 14:47:08.411" endtime="20211215 14:47:08.412"/>
+</kw>
+<kw name="Input user account">
+<arg>ekycmambu10</arg>
+<status status="NOT RUN" starttime="20211215 14:47:08.415" endtime="20211215 14:47:08.415"/>
+</kw>
+<kw name="Input user password">
+<status status="NOT RUN" starttime="20211215 14:47:08.419" endtime="20211215 14:47:08.419"/>
+</kw>
+<kw name="CLick Summit button">
+<status status="NOT RUN" starttime="20211215 14:47:08.424" endtime="20211215 14:47:08.424"/>
+</kw>
+<kw name="Wait For And Click Element" library="Zoomba.GUILibrary">
+<arg>//p[normalize-space()='Move money']</arg>
+<doc>This is a series of chained Selenium keywords, that tries to find a web element first, and then clicks it.
+If the element fails to be clicked, it will scroll to the bottom of the page and try again.</doc>
+<status status="NOT RUN" starttime="20211215 14:47:08.424" endtime="20211215 14:47:08.424"/>
+</kw>
+<status status="FAIL" starttime="20211215 14:47:08.410" endtime="20211215 14:47:08.425">Resolving variable '${Dev-site}' failed: Variable '${Dev}' not found.</status>
+</test>
+<status status="FAIL" starttime="20211215 14:47:08.155" endtime="20211215 14:47:08.426"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="MoveMoney">MoveMoney</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20211215 14:47:08.407" level="ERROR">Error in file 'D:\Timo\TimoWEB\TestScript\TestSuit\MoveMoney\MoveMoney.robot' on line 7: Resource file '..\Resources\Data\LoginInformation.robot' does not exist.</msg>
+<msg timestamp="20211215 14:47:08.408" level="ERROR">Error in file 'D:\Timo\TimoWEB\TestScript\TestSuit\MoveMoney\MoveMoney.robot' on line 8: Resource file '..\pom\LoginPage\LoginPage.robot' does not exist.</msg>
+</errors>
+</robot>

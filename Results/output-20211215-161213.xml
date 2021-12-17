@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.2 (Python 3.9.2 on win32)" generated="20211215 16:12:13.647" rpa="false" schemaversion="2">
+<suite id="s1" name="MoveMoney" source="D:\Timo\TimoWEB\TestScript\TestSuit\MoveMoney\MoveMoney.robot">
+<test id="s1-t1" name="Test">
+<kw name="Open test Browser" library="Configuration">
+<arg>${Dev-site}</arg>
+<arg>${Chrome}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${NameBrowser}== ${Chrome}</arg>
+<arg>Open Chrome</arg>
+<arg>${link}</arg>
+<arg>ELSE IF</arg>
+<arg>${NameBrowser}== ${Firefox}</arg>
+<arg>Open Firefox</arg>
+<arg>${link}</arg>
+<arg>ELSE</arg>
+<arg>Open Edge</arg>
+<arg>${link}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Chrome" library="Configuration">
+<arg>${link}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211215 16:12:13.972" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002B5644DB1F0&gt;</msg>
+<status status="PASS" starttime="20211215 16:12:13.971" endtime="20211215 16:12:13.972"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20211215 16:12:13.972" endtime="20211215 16:12:13.973"/>
+</kw>
+<kw name="Create Webdriver" library="Zoomba.GUILibrary">
+<arg>Chrome</arg>
+<arg>chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<tag>plugin</tag>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20211215 16:12:13.973" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20211215 16:12:13.973" endtime="20211215 16:12:15.543"/>
+</kw>
+<kw name="Maximize Browser Window" library="Zoomba.GUILibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211215 16:12:15.543" endtime="20211215 16:12:15.681"/>
+</kw>
+<kw name="Go To" library="Zoomba.GUILibrary">
+<arg>${link}</arg>
+<tag>plugin</tag>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211215 16:12:15.682" level="INFO">Opening url 'https://web-apptest.plus.local/'</msg>
+<status status="PASS" starttime="20211215 16:12:15.682" endtime="20211215 16:12:16.231"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:13.970" endtime="20211215 16:12:16.232"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:13.969" endtime="20211215 16:12:16.232"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:13.968" endtime="20211215 16:12:16.232"/>
+</kw>
+<kw name="Input user account" library="LoginPage">
+<arg>ekycmambu10</arg>
+<kw name="Wait Until Page Contains Element" library="Zoomba.GUILibrary">
+<arg>${e_user_name_field}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20211215 16:12:16.234" endtime="20211215 16:12:16.668"/>
+</kw>
+<kw name="Input Text" library="Zoomba.GUILibrary">
+<arg>${e_user_name_field}</arg>
+<arg>${user_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211215 16:12:16.669" level="INFO">Typing text 'ekycmambu10' into text field '//input[@name='username']'.</msg>
+<status status="PASS" starttime="20211215 16:12:16.669" endtime="20211215 16:12:16.763"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:16.233" endtime="20211215 16:12:16.763"/>
+</kw>
+<kw name="Input user password" library="LoginPage">
+<kw name="Wait Until Page Contains Element" library="Zoomba.GUILibrary">
+<arg>${e_password_field}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20211215 16:12:16.765" endtime="20211215 16:12:16.780"/>
+</kw>
+<kw name="Input Text" library="Zoomba.GUILibrary">
+<arg>${e_password_field}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211215 16:12:16.780" level="INFO">Typing text '12345678' into text field '//input[@name='password']'.</msg>
+<status status="PASS" starttime="20211215 16:12:16.780" endtime="20211215 16:12:16.885"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:16.764" endtime="20211215 16:12:16.885"/>
+</kw>
+<kw name="CLick Login button" library="LoginPage">
+<kw name="Wait For And Click Element" library="Zoomba.GUILibrary">
+<arg>${e_summit_btn}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>This is a series of chained Selenium keywords, that tries to find a web element first, and then clicks it.
+If the element fails to be clicked, it will scroll to the bottom of the page and try again.</doc>
+<kw name="Set Focus To Element" library="Zoomba.GUILibrary">
+<arg>//button[@type='submit']</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20211215 16:12:16.925" endtime="20211215 16:12:16.945"/>
+</kw>
+<msg timestamp="20211215 16:12:16.945" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20211215 16:12:16.887" endtime="20211215 16:12:17.050"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:16.886" endtime="20211215 16:12:17.051"/>
+</kw>
+<kw name="Input OTP" library="GlobalKeyWords">
+<kw name="Wait Until Page Contains Element" library="Zoomba.GUILibrary">
+<arg>${e_OTP_field}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20211215 16:12:17.052" endtime="20211215 16:12:17.346"/>
+</kw>
+<kw name="Input Text" library="Zoomba.GUILibrary">
+<arg>${e_OTP_field}</arg>
+<arg>5555</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211215 16:12:17.347" level="INFO">Typing text '5555' into text field '//input[@name='otp']'.</msg>
+<status status="PASS" starttime="20211215 16:12:17.346" endtime="20211215 16:12:17.424"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:17.051" endtime="20211215 16:12:17.424"/>
+</kw>
+<kw name="Click Submit button OTP" library="GlobalKeyWords">
+<kw name="Wait For And Click Element" library="Zoomba.GUILibrary">
+<arg>${e_submit_OTP_btn}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>This is a series of chained Selenium keywords, that tries to find a web element first, and then clicks it.
+If the element fails to be clicked, it will scroll to the bottom of the page and try again.</doc>
+<kw name="Set Focus To Element" library="Zoomba.GUILibrary">
+<arg>//div[@role='dialog']//button[@type='submit']</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20211215 16:12:17.461" endtime="20211215 16:12:17.477"/>
+</kw>
+<msg timestamp="20211215 16:12:17.477" level="INFO">Clicking element '//div[@role='dialog']//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20211215 16:12:17.425" endtime="20211215 16:12:17.552"/>
+</kw>
+<status status="PASS" starttime="20211215 16:12:17.424" endtime="20211215 16:12:17.552"/>
+</kw>
+<kw name="Wait For And Click Element" library="Zoomba.GUILibrary">
+<arg>//p[normalize-space()='Move money']</arg>
+<doc>This is a series of chained Selenium keywords, that tries to find a web element first, and then clicks it.
+If the element fails to be clicked, it will scroll to the bottom of the page and try again.</doc>
+<kw name="Save Selenium Screenshot" library="Zoomba.GUILibrary">
+<doc>Takes a screenshot with a unique filename to be stored in Robot Framework compiled reports.</doc>
+<msg timestamp="20211215 16:12:22.682" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1639559542.5542195-0.png"&gt;&lt;img src="selenium-screenshot-1639559542.5542195-0.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211215 16:12:22.554" endtime="20211215 16:12:22.682"/>
+</kw>
+<msg timestamp="20211215 16:12:22.683" level="FAIL">Element '//p[normalize-space()='Move money']' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20211215 16:12:17.553" endtime="20211215 16:12:22.683"/>
+</kw>
+<status status="FAIL" starttime="20211215 16:12:13.967" endtime="20211215 16:12:22.684">Element '//p[normalize-space()='Move money']' did not appear in 5 seconds.</status>
+</test>
+<status status="FAIL" starttime="20211215 16:12:13.649" endtime="20211215 16:12:22.685"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="MoveMoney">MoveMoney</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20211215 16:12:13.963" level="ERROR">Error in file 'D:\Timo\TimoWEB\pom\GlobalKeyWords.robot' on line 6: Resource file '..\..\Resources\Configuration\Configuration.robot' does not exist.</msg>
+</errors>
+</robot>
